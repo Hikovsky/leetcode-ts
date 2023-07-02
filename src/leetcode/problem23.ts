@@ -31,4 +31,4 @@ export function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
     array = array.sort((a,b) => a - b)
 
     return arrayToList(array)
-};
+}

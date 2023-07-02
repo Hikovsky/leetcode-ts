@@ -18,4 +18,4 @@ export function hasCycle(head: ListNode | null): boolean {
         if (firstPointer && lastPointer && firstPointer === lastPointer) return true
     }
     return false
-};
+}
