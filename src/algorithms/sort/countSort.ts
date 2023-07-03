@@ -4,14 +4,20 @@
  * @return {number[]} - Returns sorted array of numbers.
  */
 export function countSort(array: number[]): number[] {
-    const frequency: number[] = Array(array.length + 1).fill(0)
-    const sorted: number[] = []
-    for (let item of array) frequency[item] += 1
-    for (let i = 0; i < frequency.length; i++) {
-        while (frequency[i] > 0) {
-            sorted.push(i)
-            frequency[i] -= 1
-        }
+    if (!array.length) return []
+    let min = Math.min(...array);
+    let max = Math.max(...array);
+    let count = new Array(max - min + 1).fill(0);
+    for (let num of array) {
+        count[num - min]++;
     }
-    return sorted
+    for (let i = 1; i < count.length; i++) {
+        count[i] += count[i - 1];
+    }
+    let sorted = new Array(array.length);
+    for (let i = array.length - 1; i >= 0; i--) {
+        sorted[count[array[i] - min] - 1] = array[i];
+        count[array[i] - min]--;
+    }
+    return sorted;
 }
