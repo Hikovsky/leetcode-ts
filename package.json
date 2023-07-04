@@ -6,7 +6,6 @@
   "scripts": {
     "watch": "npx tsc -w",
     "test-all": "jest",
-    "test-problem": "jest tests/problem.test.js"
   },
   "author": "",
   "license": "ISC",
